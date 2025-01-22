@@ -58,6 +58,7 @@ public class Main {
         Path pathInput = null;
         Integer pageNr = null;
         Integer DPI = null;
+        Integer qualityPercent = null;
         { //READ PROPERTIES
             d.cr("console", "props.reading...");
             var u_props = TS_FilePropertiesUtils.createPropertyReader(pathConfig);
@@ -95,10 +96,20 @@ public class Main {
                 var str = op.orElseThrow();
                 DPI = TGS_CastUtils.toInteger(str);
             }
+            {
+                var op = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_QUALITY_PERCENT);
+                if (op.isEmpty()) {
+                    d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_QUALITY_PERCENT + " param not present in config file");
+                    System.exit(1);
+                }
+                var str = op.orElseThrow();
+                qualityPercent = TGS_CastUtils.toInteger(str);
+            }
         }
         d.cr("console", "pathInput", pathInput);
         d.cr("console", "pageNr", pageNr);
         d.cr("console", "DPI", DPI);
+        d.cr("console", "qualityPercent", qualityPercent);
         if (!TS_FileUtils.isExistFile(pathInput)) {
             d.ce("console", "ERROR: pathInput is not found!", pathInput);
             System.exit(1);
@@ -111,7 +122,7 @@ public class Main {
             d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_DPI + " param not be converted to int");
             System.exit(1);
         }
-        MainWork.work(true, pathInput, TS_LibFilePdfToImgUtils.pathOutput(pathInput), pageNr - 1, DPI);
+        MainWork.work(true, pathInput, TS_LibFilePdfToImgUtils.pathOutput(pathInput), pageNr - 1, DPI, qualityPercent / 100d);
     }
 
     private static void gui(TS_ThreadSyncTrigger kt) {

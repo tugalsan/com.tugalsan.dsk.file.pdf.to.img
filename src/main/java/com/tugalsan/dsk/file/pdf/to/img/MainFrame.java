@@ -47,6 +47,8 @@ public class MainFrame extends javax.swing.JFrame {
         pdfPageNr = new javax.swing.JLabel();
         tfDPI = new javax.swing.JTextField();
         tfPageNr = new javax.swing.JTextField();
+        lblImgQuality = new javax.swing.JLabel();
+        tfQualityPercent = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 500));
@@ -105,6 +107,12 @@ public class MainFrame extends javax.swing.JFrame {
         tfPageNr.setText("1");
         jPanel1.add(tfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 120, -1));
 
+        lblImgQuality.setText("imgQuality");
+        jPanel1.add(lblImgQuality, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 20));
+
+        tfQualityPercent.setText("100");
+        jPanel1.add(tfQualityPercent, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 120, -1));
+
         tb.addTab("Common", jPanel1);
 
         getContentPane().add(tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 300));
@@ -122,7 +130,8 @@ public class MainFrame extends javax.swing.JFrame {
                 Path.of(tfPdfInput.getText()),
                 Path.of(tfImgOutput.getText()),
                 TGS_CastUtils.toInteger(tfPageNr.getText()),
-                TGS_CastUtils.toInteger(tfDPI.getText())
+                TGS_CastUtils.toInteger(tfDPI.getText()),
+                TGS_CastUtils.toInteger(tfQualityPercent.getText()) / 100d
         );
     }//GEN-LAST:event_btnImgWorkActionPerformed
 
@@ -173,6 +182,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblImgDPI;
     private javax.swing.JLabel lblImgOutput;
+    private javax.swing.JLabel lblImgQuality;
     private javax.swing.JLabel lblPdfInput;
     private javax.swing.JLabel pdfPageNr;
     public javax.swing.JTextArea taConsole;
@@ -181,5 +191,6 @@ public class MainFrame extends javax.swing.JFrame {
     public javax.swing.JTextField tfImgOutput;
     private javax.swing.JTextField tfPageNr;
     public javax.swing.JTextField tfPdfInput;
+    private javax.swing.JTextField tfQualityPercent;
     // End of variables declaration//GEN-END:variables
 }

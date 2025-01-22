@@ -13,5 +13,6 @@ module com.tugalsan.dsk.file.pdf.to.img {
     requires com.tugalsan.api.file.properties;
     requires com.tugalsan.api.file.pdf.pdfbox3;
     requires com.tugalsan.lib.file.pdf.to.img;
+    requires com.tugalsan.api.file.img;
     requires java.logging;
 }

@@ -1,5 +1,6 @@
 package com.tugalsan.dsk.file.pdf.to.img;
 
+import com.tugalsan.api.file.img.server.TS_FileImageUtils;
 import com.tugalsan.api.file.pdf.pdfbox3.server.TS_FilePdfBox3UtilsPageExtract;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.log.server.TS_Log;
@@ -10,7 +11,7 @@ public class MainWork {
 
     final private static TS_Log d = TS_Log.of(MainWork.class);
 
-    public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, int dpi) {
+    public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, int dpi, double quality) {
         TGS_UnSafe.run(() -> {
             TS_FileUtils.deleteFileIfExists(dstImg);
             if (TS_FileUtils.isExistFile(dstImg)) {
@@ -18,10 +19,11 @@ public class MainWork {
                 System.exit(1);
             }
             d.cr("work", "init", srcPDF, dstImg);
-            var u = TS_FilePdfBox3UtilsPageExtract.extract_as_img(srcPDF, dstImg, pageIdx, dpi);
+            var u = TS_FilePdfBox3UtilsPageExtract.toImage(srcPDF, pageIdx, dpi);
             if (u.isExcuse()) {
                 TGS_UnSafe.thrw(u.excuse());
             }
+            TS_FileImageUtils.toFile(u.value(), dstImg, quality);
             if (isConsole) {
                 d.cr("work", "success");
                 System.exit(0);
