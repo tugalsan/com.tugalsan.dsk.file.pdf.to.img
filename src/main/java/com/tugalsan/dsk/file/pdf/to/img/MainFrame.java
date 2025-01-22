@@ -36,12 +36,12 @@ public class MainFrame extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         tb = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        lblHtmlOutput = new javax.swing.JLabel();
+        lblImgOutput = new javax.swing.JLabel();
         tfPdfInput = new javax.swing.JTextField();
         btnPdfInputRecord = new javax.swing.JButton();
         lblPdfInput = new javax.swing.JLabel();
-        tfHtmlOutput = new javax.swing.JTextField();
-        btnHtmlWork = new javax.swing.JButton();
+        tfImgOutput = new javax.swing.JTextField();
+        btnImgWork = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 500));
@@ -60,8 +60,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHtmlOutput.setText("htmlOutput");
-        jPanel1.add(lblHtmlOutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 70, 20));
+        lblImgOutput.setText("imgOutput");
+        jPanel1.add(lblImgOutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 70, 20));
 
         tfPdfInput.setEditable(false);
         jPanel1.add(tfPdfInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 760, -1));
@@ -77,16 +77,16 @@ public class MainFrame extends javax.swing.JFrame {
         lblPdfInput.setText("pdfInput");
         jPanel1.add(lblPdfInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 20));
 
-        tfHtmlOutput.setEditable(false);
-        jPanel1.add(tfHtmlOutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 760, -1));
+        tfImgOutput.setEditable(false);
+        jPanel1.add(tfImgOutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 760, -1));
 
-        btnHtmlWork.setText("Dönüştür");
-        btnHtmlWork.addActionListener(new java.awt.event.ActionListener() {
+        btnImgWork.setText("Dönüştür");
+        btnImgWork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHtmlWorkActionPerformed(evt);
+                btnImgWorkActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHtmlWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 40, 100, -1));
+        jPanel1.add(btnImgWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 40, 100, -1));
 
         tb.addTab("Common", jPanel1);
 
@@ -100,12 +100,12 @@ public class MainFrame extends javax.swing.JFrame {
         MainRecordFile.pdfInput();
     }//GEN-LAST:event_btnPdfInputRecordActionPerformed
 
-    private void btnHtmlWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHtmlWorkActionPerformed
+    private void btnImgWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImgWorkActionPerformed
         MainWork.work(false,
                 Path.of(tfPdfInput.getText()),
-                Path.of(tfHtmlOutput.getText())
+                Path.of(tfImgOutput.getText())
         );
-    }//GEN-LAST:event_btnHtmlWorkActionPerformed
+    }//GEN-LAST:event_btnImgWorkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,7 +144,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHtmlWork;
+    private javax.swing.JButton btnImgWork;
     private javax.swing.JButton btnPdfInputRecord;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -152,11 +152,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JLabel lblHtmlOutput;
+    private javax.swing.JLabel lblImgOutput;
     private javax.swing.JLabel lblPdfInput;
     public javax.swing.JTextArea taConsole;
     public javax.swing.JTabbedPane tb;
-    public javax.swing.JTextField tfHtmlOutput;
+    public javax.swing.JTextField tfImgOutput;
     public javax.swing.JTextField tfPdfInput;
     // End of variables declaration//GEN-END:variables
 }

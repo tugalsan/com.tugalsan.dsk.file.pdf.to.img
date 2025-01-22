@@ -60,7 +60,7 @@ public class Main {
             var u_props = TS_FilePropertiesUtils.createPropertyReader(pathConfig);
             if (u_props.isExcuse()) {
                 d.ce("console", "ERROR: " + u_props.excuse().getMessage());
-                props = TS_FilePropertiesUtils.empty();
+                props = TS_FilePropertiesUtils.createNewInstance();
                 System.exit(1);
             }
             d.cr("console", "props.read: OK");
@@ -110,7 +110,7 @@ public class Main {
             var u_props = TS_FilePropertiesUtils.createPropertyReader(pathConfig);
             if (u_props.isExcuse()) {
                 MainLog.add("ERROR: " + u_props.excuse().getMessage());
-                props = TS_FilePropertiesUtils.empty();
+                props = TS_FilePropertiesUtils.createNewInstance();
             } else {
                 MainLog.add("props.read: OK");
                 props = u_props.value();
@@ -118,7 +118,7 @@ public class Main {
                     var u = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_PATH_INPUT);
                     if (u.isPresent()) {
                         mainFrame.tfPdfInput.setText(u.orElseThrow());
-                        mainFrame.tfHtmlOutput.setText(TS_LibFilePdfToImgUtils.pathOutput(
+                        mainFrame.tfImgOutput.setText(TS_LibFilePdfToImgUtils.pathOutput(
                                         Path.of(
                                                 mainFrame.tfPdfInput.getText()
                                         )
@@ -131,7 +131,7 @@ public class Main {
 
         //INIT FRAME
         MainPopup.selectAll_copy_togather(mainFrame.tfPdfInput);
-        MainPopup.selectAll_copy_togather(mainFrame.tfHtmlOutput);
+        MainPopup.selectAll_copy_togather(mainFrame.tfImgOutput);
 
         TS_DesktopWindowAndFrameUtils.setTitleSizeCenterWithMenuBar(mainFrame, Main.class.getPackageName(), TS_DesktopJMenuButtonBar.of(
                 TS_DesktopJMenuButton.of("Exit", mx -> {

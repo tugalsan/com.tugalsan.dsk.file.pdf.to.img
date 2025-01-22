@@ -34,7 +34,7 @@ public class MainRecordFile {
 
     public static void pdfInput() {
         thing(TS_LibFilePdfToImgUtils.CONFIG_PARAM_PATH_INPUT, "*.pdf", Main.mainFrame.tfPdfInput);
-        mainFrame.tfHtmlOutput.setText(TS_LibFilePdfToImgUtils.pathOutput(
+        mainFrame.tfImgOutput.setText(TS_LibFilePdfToImgUtils.pathOutput(
                         Path.of(
                                 mainFrame.tfPdfInput.getText()
                         )

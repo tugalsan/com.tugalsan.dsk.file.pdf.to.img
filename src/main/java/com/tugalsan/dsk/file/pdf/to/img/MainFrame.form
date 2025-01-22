@@ -104,9 +104,9 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblHtmlOutput">
+            <Component class="javax.swing.JLabel" name="lblImgOutput">
               <Properties>
-                <Property name="text" type="java.lang.String" value="htmlOutput"/>
+                <Property name="text" type="java.lang.String" value="imgOutput"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -150,7 +150,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="tfHtmlOutput">
+            <Component class="javax.swing.JTextField" name="tfImgOutput">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>
@@ -163,12 +163,12 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="btnHtmlWork">
+            <Component class="javax.swing.JButton" name="btnImgWork">
               <Properties>
                 <Property name="text" type="java.lang.String" value="D&#xf6;n&#xfc;&#x15f;t&#xfc;r"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHtmlWorkActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImgWorkActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
