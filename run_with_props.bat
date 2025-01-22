@@ -1,0 +1,1 @@
+java -jar target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar --load-properties-file config.properties
