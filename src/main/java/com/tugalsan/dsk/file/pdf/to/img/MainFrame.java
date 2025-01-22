@@ -4,6 +4,7 @@
  */
 package com.tugalsan.dsk.file.pdf.to.img;
 
+import com.tugalsan.api.cast.client.TGS_CastUtils;
 import java.nio.file.Path;
 
 /**
@@ -42,6 +43,10 @@ public class MainFrame extends javax.swing.JFrame {
         lblPdfInput = new javax.swing.JLabel();
         tfImgOutput = new javax.swing.JTextField();
         btnImgWork = new javax.swing.JButton();
+        lblImgDPI = new javax.swing.JLabel();
+        pdfPageNr = new javax.swing.JLabel();
+        tfDPI = new javax.swing.JTextField();
+        tfPageNr = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 500));
@@ -88,6 +93,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnImgWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 40, 100, -1));
 
+        lblImgDPI.setText("imgDPI");
+        jPanel1.add(lblImgDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 70, 20));
+
+        pdfPageNr.setText("pdfPageNr");
+        jPanel1.add(pdfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 20));
+
+        tfDPI.setText("300");
+        jPanel1.add(tfDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+
+        tfPageNr.setText("1");
+        jPanel1.add(tfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
         tb.addTab("Common", jPanel1);
 
         getContentPane().add(tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 970, 300));
@@ -103,7 +120,9 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnImgWorkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImgWorkActionPerformed
         MainWork.work(false,
                 Path.of(tfPdfInput.getText()),
-                Path.of(tfImgOutput.getText())
+                Path.of(tfImgOutput.getText()),
+                TGS_CastUtils.toInteger(tfPageNr.getText()),
+                TGS_CastUtils.toInteger(tfDPI.getText())
         );
     }//GEN-LAST:event_btnImgWorkActionPerformed
 
@@ -152,11 +171,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JLabel lblImgDPI;
     private javax.swing.JLabel lblImgOutput;
     private javax.swing.JLabel lblPdfInput;
+    private javax.swing.JLabel pdfPageNr;
     public javax.swing.JTextArea taConsole;
     public javax.swing.JTabbedPane tb;
+    private javax.swing.JTextField tfDPI;
     public javax.swing.JTextField tfImgOutput;
+    private javax.swing.JTextField tfPageNr;
     public javax.swing.JTextField tfPdfInput;
     // End of variables declaration//GEN-END:variables
 }

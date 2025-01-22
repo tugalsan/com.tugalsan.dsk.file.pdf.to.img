@@ -1,28 +1,26 @@
 package com.tugalsan.dsk.file.pdf.to.img;
 
+import com.tugalsan.api.file.pdf.pdfbox3.server.TS_FilePdfBox3UtilsPageExtract;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.log.server.TS_Log;
 import com.tugalsan.api.unsafe.client.TGS_UnSafe;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.fit.pdfdom.PDFDomTree;
 
 public class MainWork {
 
     final private static TS_Log d = TS_Log.of(MainWork.class);
 
-    public static void work(boolean isConsole, Path srcPDF, Path dstHTM) {
+    public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, int dpi) {
         TGS_UnSafe.run(() -> {
-            TS_FileUtils.deleteFileIfExists(dstHTM);
-            if (TS_FileUtils.isExistFile(dstHTM)) {
-                d.cr("work", "ERROR canot delete outputFile", dstHTM);
+            TS_FileUtils.deleteFileIfExists(dstImg);
+            if (TS_FileUtils.isExistFile(dstImg)) {
+                d.cr("work", "ERROR canot delete outputFile", dstImg);
                 System.exit(1);
             }
-            d.cr("work", "init", srcPDF, dstHTM);
-            try (var pdf = PDDocument.load(srcPDF.toFile()); var output = new PrintWriter(dstHTM.toFile(), StandardCharsets.UTF_8);) {
-                new PDFDomTree().writeText(pdf, output);
+            d.cr("work", "init", srcPDF, dstImg);
+            var u = TS_FilePdfBox3UtilsPageExtract.extract_as_img(srcPDF, dstImg, pageIdx, dpi);
+            if (u.isExcuse()) {
+                TGS_UnSafe.thrw(u.excuse());
             }
             if (isConsole) {
                 d.cr("work", "success");

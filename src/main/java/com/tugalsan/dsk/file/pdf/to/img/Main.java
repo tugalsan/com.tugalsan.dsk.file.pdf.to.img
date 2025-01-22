@@ -1,5 +1,6 @@
 package com.tugalsan.dsk.file.pdf.to.img;
 
+import com.tugalsan.api.cast.client.TGS_CastUtils;
 import com.tugalsan.api.desktop.server.TS_DesktopDialogInfoUtils;
 import com.tugalsan.api.desktop.server.TS_DesktopJMenuButton;
 import com.tugalsan.api.desktop.server.TS_DesktopJMenuButtonBar;
@@ -55,6 +56,8 @@ public class Main {
             System.exit(1);
         }
         Path pathInput = null;
+        Integer pageNr = null;
+        Integer DPI = null;
         { //READ PROPERTIES
             d.cr("console", "props.reading...");
             var u_props = TS_FilePropertiesUtils.createPropertyReader(pathConfig);
@@ -74,13 +77,41 @@ public class Main {
                 var str = op.orElseThrow();
                 pathInput = Path.of(str);
             }
+            {
+                var op = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_PAGE_NR);
+                if (op.isEmpty()) {
+                    d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_PAGE_NR + " param not present in config file");
+                    System.exit(1);
+                }
+                var str = op.orElseThrow();
+                pageNr = TGS_CastUtils.toInteger(str);
+            }
+            {
+                var op = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_DPI);
+                if (op.isEmpty()) {
+                    d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_DPI + " param not present in config file");
+                    System.exit(1);
+                }
+                var str = op.orElseThrow();
+                DPI = TGS_CastUtils.toInteger(str);
+            }
         }
         d.cr("console", "pathInput", pathInput);
+        d.cr("console", "pageNr", pageNr);
+        d.cr("console", "DPI", DPI);
         if (!TS_FileUtils.isExistFile(pathInput)) {
             d.ce("console", "ERROR: pathInput is not found!", pathInput);
             System.exit(1);
         }
-        MainWork.work(true, pathInput, TS_LibFilePdfToImgUtils.pathOutput(pathInput));
+        if (pageNr == null) {
+            d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_PAGE_NR + " param not be converted to int");
+            System.exit(1);
+        }
+        if (DPI == null) {
+            d.ce("console", "ERROR: " + TS_LibFilePdfToImgUtils.CONFIG_PARAM_DPI + " param not be converted to int");
+            System.exit(1);
+        }
+        MainWork.work(true, pathInput, TS_LibFilePdfToImgUtils.pathOutput(pathInput), pageNr - 1, DPI);
     }
 
     private static void gui(TS_ThreadSyncTrigger kt) {
@@ -119,10 +150,10 @@ public class Main {
                     if (u.isPresent()) {
                         mainFrame.tfPdfInput.setText(u.orElseThrow());
                         mainFrame.tfImgOutput.setText(TS_LibFilePdfToImgUtils.pathOutput(
-                                        Path.of(
-                                                mainFrame.tfPdfInput.getText()
-                                        )
-                                ).toAbsolutePath().toString()
+                                Path.of(
+                                        mainFrame.tfPdfInput.getText()
+                                )
+                        ).toAbsolutePath().toString()
                         );
                     }
                 }
