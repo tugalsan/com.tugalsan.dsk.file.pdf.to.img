@@ -100,10 +100,10 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.add(pdfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 20));
 
         tfDPI.setText("300");
-        jPanel1.add(tfDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        jPanel1.add(tfDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 120, -1));
 
         tfPageNr.setText("1");
-        jPanel1.add(tfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jPanel1.add(tfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 120, -1));
 
         tb.addTab("Common", jPanel1);
 
