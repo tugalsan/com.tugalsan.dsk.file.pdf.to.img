@@ -43,11 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         lblPdfInput = new javax.swing.JLabel();
         tfImgOutput = new javax.swing.JTextField();
         btnImgWork = new javax.swing.JButton();
-        lblImgDPI = new javax.swing.JLabel();
+        lblMagnify = new javax.swing.JLabel();
         pdfPageNr = new javax.swing.JLabel();
-        tfDPI = new javax.swing.JTextField();
+        tfMagnify = new javax.swing.JTextField();
         tfPageNr = new javax.swing.JTextField();
-        lblImgQuality = new javax.swing.JLabel();
+        lblQuality = new javax.swing.JLabel();
         tfQualityPercent = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,20 +95,20 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnImgWork, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 40, 100, -1));
 
-        lblImgDPI.setText("imgDPI");
-        jPanel1.add(lblImgDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 70, 20));
+        lblMagnify.setText("imgDPI");
+        jPanel1.add(lblMagnify, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 70, 20));
 
         pdfPageNr.setText("pdfPageNr");
         jPanel1.add(pdfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 70, 20));
 
-        tfDPI.setText("300");
-        jPanel1.add(tfDPI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 120, -1));
+        tfMagnify.setText("100");
+        jPanel1.add(tfMagnify, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 120, -1));
 
         tfPageNr.setText("1");
         jPanel1.add(tfPageNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 120, -1));
 
-        lblImgQuality.setText("imgQuality");
-        jPanel1.add(lblImgQuality, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 20));
+        lblQuality.setText("imgQuality");
+        jPanel1.add(lblQuality, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 70, 20));
 
         tfQualityPercent.setText("100");
         jPanel1.add(tfQualityPercent, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 120, -1));
@@ -130,7 +130,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Path.of(tfPdfInput.getText()),
                 Path.of(tfImgOutput.getText()),
                 TGS_CastUtils.toInteger(tfPageNr.getText()),
-                TGS_CastUtils.toInteger(tfDPI.getText()),
+                TGS_CastUtils.toInteger(tfMagnify.getText()),
                 TGS_CastUtils.toInteger(tfQualityPercent.getText()) / 100d
         );
     }//GEN-LAST:event_btnImgWorkActionPerformed
@@ -180,15 +180,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JLabel lblImgDPI;
     private javax.swing.JLabel lblImgOutput;
-    private javax.swing.JLabel lblImgQuality;
+    private javax.swing.JLabel lblMagnify;
     private javax.swing.JLabel lblPdfInput;
+    private javax.swing.JLabel lblQuality;
     private javax.swing.JLabel pdfPageNr;
     public javax.swing.JTextArea taConsole;
     public javax.swing.JTabbedPane tb;
-    private javax.swing.JTextField tfDPI;
     public javax.swing.JTextField tfImgOutput;
+    private javax.swing.JTextField tfMagnify;
     private javax.swing.JTextField tfPageNr;
     public javax.swing.JTextField tfPdfInput;
     private javax.swing.JTextField tfQualityPercent;

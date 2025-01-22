@@ -11,7 +11,7 @@ public class MainWork {
 
     final private static TS_Log d = TS_Log.of(MainWork.class);
 
-    public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, int dpi, double quality) {
+    public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, float scale, double quality) {
         TGS_UnSafe.run(() -> {
             TS_FileUtils.deleteFileIfExists(dstImg);
             if (TS_FileUtils.isExistFile(dstImg)) {
@@ -19,11 +19,15 @@ public class MainWork {
                 System.exit(1);
             }
             d.cr("work", "init", srcPDF, dstImg);
-            var u = TS_FilePdfBox3UtilsPageExtract.toImage(srcPDF, pageIdx, dpi);
+            var u = TS_FilePdfBox3UtilsPageExtract.toImage(srcPDF, pageIdx, scale);
             if (u.isExcuse()) {
+                d.ce("work", "Errors found while converting to image");
                 TGS_UnSafe.thrw(u.excuse());
+            } else {
+                d.cr("work", "No Errors found while converting to image");
             }
             TS_FileImageUtils.toFile(u.value(), dstImg, quality);
+            d.cr("work", "writing image to file fin");
             if (isConsole) {
                 d.cr("work", "success");
                 System.exit(0);
