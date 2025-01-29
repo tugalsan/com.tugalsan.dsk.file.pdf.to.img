@@ -1,7 +1,7 @@
 package com.tugalsan.dsk.file.pdf.to.img;
 
 import com.tugalsan.api.file.img.server.TS_FileImageUtils;
-import com.tugalsan.api.file.pdf.pdfbox3.server.TS_FilePdfBox3UtilsPageExtract;
+import com.tugalsan.api.file.pdf.pdfbox3.server.TS_FilePdfBox3UtilsImage;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.log.server.TS_Log;
 import com.tugalsan.api.unsafe.client.TGS_UnSafe;
@@ -19,7 +19,7 @@ public class MainWork {
                 System.exit(1);
             }
             d.cr("work", "init", srcPDF, dstImg);
-            var u = TS_FilePdfBox3UtilsPageExtract.toImage(srcPDF, pageIdx, scale);
+            var u = TS_FilePdfBox3UtilsImage.toImage(srcPDF, pageIdx, scale);
             if (u.isExcuse()) {
                 d.ce("work", "Errors found while converting to image");
                 TGS_UnSafe.thrw(u.excuse());
