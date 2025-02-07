@@ -19,7 +19,7 @@ public class MainWork {
                 System.exit(1);
             }
             d.cr("work", "init", srcPDF, dstImg);
-            var u = TS_FilePdfBox3UtilsImage.toImage(srcPDF, pageIdx, scale);
+            var u = TS_FilePdfBox3UtilsImage.toBufferedImage(srcPDF, pageIdx, scale);
             if (u.isExcuse()) {
                 d.ce("work", "Errors found while converting to image");
                 TGS_UnSafe.thrw(u.excuse());
