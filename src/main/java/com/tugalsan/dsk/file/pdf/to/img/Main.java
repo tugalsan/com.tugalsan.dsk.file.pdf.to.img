@@ -11,7 +11,7 @@ import com.tugalsan.api.file.properties.server.TS_FilePropertiesUtils;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.log.server.TS_Log;
 import com.tugalsan.api.thread.server.sync.TS_ThreadSyncTrigger;
-import com.tugalsan.api.unsafe.client.TGS_UnSafe;
+import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
 import com.tugalsan.lib.file.pdf.to.img.server.TS_LibFilePdfToImgUtils;
 import java.awt.Component;
 import java.nio.file.Path;
@@ -32,7 +32,7 @@ public class Main {
     //cd C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img
     //java --enable-preview --add-modules jdk.incubator.vector -jar target/com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar
     public static void main(String[] args) {
-        TGS_UnSafe.run(() -> {
+        TGS_FuncMTCEUtils.run(() -> {
             var kt = TS_ThreadSyncTrigger.of();
             var configLoadCmdFlagIdx = IntStream.range(0, args.length)
                     .filter(i -> args[i].equals(TS_LibFilePdfToImgUtils.EXECUTE_PARAM_LOAD_CONFIG_FILE)).findAny().orElse(-1);
@@ -131,7 +131,7 @@ public class Main {
 
     private static void gui(TS_ThreadSyncTrigger kt) {
         d.cr("gui", "hello");
-        TGS_UnSafe.run(() -> {
+        TGS_FuncMTCEUtils.run(() -> {
             TS_DesktopMainUtils.setThemeAndinvokeLaterAndFixTheme(() -> {
                 return gui_component(kt);
             });
