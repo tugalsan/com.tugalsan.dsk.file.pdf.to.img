@@ -85,7 +85,7 @@ public class Main {
                     System.exit(1);
                 }
                 var str = op.orElseThrow();
-                pageNr = TGS_CastUtils.toInteger(str);
+                pageNr = TGS_CastUtils.toInteger(str).orElse(null);
             }
             {
                 var op = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_MAGNIFY_PERCENT);
@@ -94,7 +94,7 @@ public class Main {
                     System.exit(1);
                 }
                 var str = op.orElseThrow();
-                magnifyPercent = TGS_CastUtils.toInteger(str);
+                magnifyPercent = TGS_CastUtils.toInteger(str).orElse(null);
             }
             {
                 var op = TS_FilePropertiesUtils.getValue(props, TS_LibFilePdfToImgUtils.CONFIG_PARAM_QUALITY_PERCENT);
@@ -103,7 +103,7 @@ public class Main {
                     System.exit(1);
                 }
                 var str = op.orElseThrow();
-                qualityPercent = TGS_CastUtils.toInteger(str);
+                qualityPercent = TGS_CastUtils.toInteger(str).orElse(null);
             }
         }
         d.cr("console", "pathInput", pathInput);

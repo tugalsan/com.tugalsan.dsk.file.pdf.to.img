@@ -129,9 +129,9 @@ public class MainFrame extends javax.swing.JFrame {
         MainWork.work(false,
                 Path.of(tfPdfInput.getText()),
                 Path.of(tfImgOutput.getText()),
-                TGS_CastUtils.toInteger(tfPageNr.getText()),
-                TGS_CastUtils.toInteger(tfMagnify.getText()),
-                TGS_CastUtils.toInteger(tfQualityPercent.getText()) / 100d
+                TGS_CastUtils.toInteger(tfPageNr.getText()).orElseThrow(),
+                TGS_CastUtils.toInteger(tfMagnify.getText()).orElseThrow(),
+                TGS_CastUtils.toInteger(tfQualityPercent.getText()).orElseThrow() / 100d
         );
     }//GEN-LAST:event_btnImgWorkActionPerformed
 
