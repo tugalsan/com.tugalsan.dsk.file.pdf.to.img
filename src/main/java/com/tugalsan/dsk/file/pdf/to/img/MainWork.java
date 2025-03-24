@@ -4,8 +4,8 @@ import com.tugalsan.api.file.img.server.TS_FileImageUtils;
 import com.tugalsan.api.file.pdf.pdfbox3.server.TS_FilePdfBox3UtilsImage;
 import com.tugalsan.api.file.server.TS_FileUtils;
 import com.tugalsan.api.log.server.TS_Log;
-import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCEUtils;
+import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTUUtils;
 import java.nio.file.Path;
 
 public class MainWork {
@@ -13,7 +13,7 @@ public class MainWork {
     final private static TS_Log d = TS_Log.of(MainWork.class);
 
     public static void work(boolean isConsole, Path srcPDF, Path dstImg, int pageIdx, float scale, double quality) {
-        TGS_FuncMTCEUtils.run(() -> {
+        TGS_FuncMTCUtils.run(() -> {
             TS_FileUtils.deleteFileIfExists(dstImg);
             if (TS_FileUtils.isExistFile(dstImg)) {
                 d.cr("work", "ERROR canot delete outputFile", dstImg);
@@ -23,7 +23,7 @@ public class MainWork {
             var u = TS_FilePdfBox3UtilsImage.toBufferedImage(srcPDF, pageIdx, scale);
             if (u.isExcuse()) {
                 d.ce("work", "Errors found while converting to image");
-                TGS_FuncMTUCEUtils.thrw(u.excuse());
+                TGS_FuncMTUUtils.thrw(u.excuse());
             } else {
                 d.cr("work", "No Errors found while converting to image");
             }
@@ -46,7 +46,7 @@ public class MainWork {
 //    @Deprecated //NOT WORKING ERROR: org.apache.pdfbox version incompatible
 //    public static Path castFromPDFtoHTM(Path srcPDF, Path dstHTM, CharSequence optionalTitle, CharSequence optionalHeaderContent, CharSequence optional_iframe_video, boolean addLoader) {
 //        d.ci("castFromPDFtoHTM", srcPDF, dstHTM);
-//        TGS_FuncMTCEUtils.run(() -> {
+//        TGS_FuncMTCUtils.run(() -> {
 //            castFromPDFtoHTM_do(srcPDF, dstHTM);
 //        }, e -> {
 //            TS_FileTxtUtils.toFile("""
