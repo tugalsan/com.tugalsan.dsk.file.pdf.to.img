@@ -1,9 +1,8 @@
 package com.tugalsan.dsk.file.pdf.to.img;
 
 import com.tugalsan.api.thread.server.async.run.TS_ThreadAsyncRun;
-import .client.TGS_FuncMTU;
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
-import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTUUtils;
 import com.tugalsan.api.thread.server.sync.TS_ThreadSyncTrigger;
 import java.time.Duration;
 
@@ -20,7 +19,7 @@ public class MainAsync {
         TS_ThreadAsyncRun.now(killTrigger, kt -> {
 //            var u = TS_ThreadAsyncAwait.runUntil(kt, until, kt2 -> {
 //                MainLog.add("AWAIT.BEGIN...");
-                TGS_FuncMTCUtils.run(exe, e -> MainLog.add("ERROR: " + e.getMessage()));
+                TGS_FuncMTUUtils.run(exe, e -> MainLog.add("ERROR: " + e.getMessage()));
 //            });
 //            if (u.timeout()) {
 //                MainLog.add("AWAIT.ERROR: TIMEOUT");

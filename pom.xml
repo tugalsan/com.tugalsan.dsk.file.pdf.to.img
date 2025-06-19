@@ -92,7 +92,7 @@
                 </executions>
                 <configuration>
                     <executable>java</executable>
-                    <commandlineArgs>-jar C:/git/trm/com.tugalsan.trm.migration.jakarta/target/com.tugalsan.trm.migration.jakarta-1.0.9-SNAPSHOT-shaded.jar C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar</commandlineArgs>
+                    <commandlineArgs>-jar C:/git/trm/com.tugalsan.trm.migration.jakarta/target/com.tugalsan.trm.migration.jakarta-1.0.10-SNAPSHOT-shaded.jar C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar</commandlineArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -101,20 +101,20 @@
                 <configuration>
                     <target>
                         <!-- jar -->
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/> 
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/>
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies_cleaned-and-migrated.jar" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\target\com.tugalsan.dsk.file.pdf.to.img-1.0-SNAPSHOT-jar-with-dependencies.jar"/> -->
                         <!-- run_gui.bat -->
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/> 
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/>
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_gui.bat" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_gui.bat"/> -->
                         <!-- run_with_props -->
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/>
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/> 
-                        <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/>
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="C:\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\192.168.5.15\c\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\10.0.0.10\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/> -->
+                        <!-- <copy file="C:\git\dsk\com.tugalsan.dsk.file.pdf.to.img\run_with_props.bat" tofile="\\192.168.7.1\d\bin\com.tugalsan.dsk.file.pdf.to.img\home\run_with_props.bat"/> -->
                     </target>
                 </configuration>
                 <executions>
